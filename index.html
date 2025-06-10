@@ -45,21 +45,47 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Магазин сетов Dota 2</h1>
-        <p>Зарабатывай монеты на моем стриме и получай сеты!</p>
-    </div>
 
-    <div class="store">
-        <div class="item">
-            <img src="ссылка_на_изображение_1.jpg" alt="Сет 1">
-            <p>Цена: 50 монет</p>
-        </div>
-        <div class="item">
-            <img src="ссылка_на_изображение_2.jpg" alt="Сет 2">
-            <p>Цена: 100 монет</p>
-        </div>
-        <!-- Добавь больше элементов по аналогии -->
-    </div>
+<div class="header">
+    <h1>Магазин сетов Dota 2</h1>
+    <p>Зарабатывай монеты на моем стриме и получай сеты!</p>
+</div>
+
+<div class="store" id="store"></div>
+
+<script>
+    // Функция для загрузки и парсинга файла
+    async function loadFile() {
+        // Загружаем файл price.em с GitHub
+        const response = await fetch('https://raw.githubusercontent.com/DiFiStv/ezymarket/main/price.em');
+        const fileContent = await response.text();
+
+        // Разделение содержимого по строкам
+        const lines = fileContent.split('\n');
+        const store = document.getElementById('store');
+
+        // Обработка каждой строки
+        lines.forEach(line => {
+            const [hero, setName, price] = line.split('|');
+            const imageUrl = `https://raw.githubusercontent.com/DiFiStv/ezymarket/main/images/${setName}.png`;  // Указываем путь к картинке
+
+            // Создаем HTML-элемент для каждого сета
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
+            itemDiv.innerHTML = `
+                <img src="${imageUrl}" alt="${setName}">
+                <p>${setName}</p>
+                <p>Цена: ${price} монет</p>
+            `;
+
+            // Добавляем элемент в витрину
+            store.appendChild(itemDiv);
+        });
+    }
+
+    // Загружаем данные при загрузке страницы
+    window.onload = loadFile;
+</script>
+
 </body>
 </html>
