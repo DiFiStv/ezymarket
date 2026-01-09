@@ -7,4 +7,4 @@ Anti-Mage|Proselyte_of_the_Sakura_Clan|∞
 Anti-Mage|Spectral_Hunter|∞
 Batrider|Prized_Acquisitions|∞
 Leshrac|Fruits_of_Wane|∞
-Medusa|Death_Adder|∞
+Medusa|Death_Adder|∞ 
