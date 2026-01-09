@@ -1,4 +1,4 @@
-Abaddon|Spectral_Shadow|368000
+Abaddon|Spectral_Shadow|250000
 Abaddon|Blightfall|944000
 Alchemist|Taur_Rider|343000
 Ancient Apparition|Secrets_of_the_Frost_Singularity|986000
