@@ -90,23 +90,20 @@
 
         // Обработка каждой строки
         lines.forEach(line => {
-            const parts = line.split('|');
-	    if (parts.length < 3) return;
-            const [hero, setName, price] = parts;
-            const imageUrl = `https://raw.githubusercontent.com/DiFiStv/ezymarket/main/images/${setName}.png`;  // Указываем путь к картинке
+    		if (!line.trim()) return; // Пропускаем пустые строки
 
-            // Создаем HTML-элемент для каждого сета
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('item');
-            itemDiv.innerHTML = `
-                <img src="${imageUrl}" alt="${setName}">
-                <p>${setName}</p>
-                <p>Цена: ${price} монет</p>
-            `;
+    		const [hero, setName, price] = line.split('|');
+    		const imageUrl = `https://raw.githubusercontent.com/DiFiStv/ezymarket/main/images/${setName}.png`;
 
-            // Добавляем элемент в витрину
-            store.appendChild(itemDiv);
-        });
+    		const itemDiv = document.createElement('div');
+    		itemDiv.classList.add('item');
+    		itemDiv.innerHTML = `
+        		<img src="${imageUrl}" alt="${setName}">
+        		<p>${setName}</p>
+        		<p>Цена: ${price} Ezy Gold</p>
+    		`;
+    		store.appendChild(itemDiv);
+		});
     }
 
     // Загружаем данные при загрузке страницы
@@ -115,3 +112,4 @@
 
 </body>
 </html>
+
